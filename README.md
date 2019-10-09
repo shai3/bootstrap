@@ -1,1 +1,1 @@
-# bootstrap
+# bootstrap to hapi server
