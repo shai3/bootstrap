@@ -1,0 +1,43 @@
+{
+	"name": "hapi-server",
+	"version": "0.1.0",
+	"main": "./src/index.js",
+	"private": true,
+	"author": "shai",
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"lint": "eslint ./src ./test --ext=.js,.mjs,.jsx --fix",
+		"test": "jest --runInBand --forceExit",
+		"start": "node --experimental-modules ./src/index.js",
+		"docker-down": "docker-compose -f appDockers/docker-compose.yaml down ",
+		"docker-up": "yarn docker-down && docker-compose -f appDockers/docker-compose.yaml up -d"
+	},
+	"jest": {
+		"testEnvironment": "node",
+		"setupFilesAfterEnv": [ "./test/setupFilesAfterEnv.js" ],
+		"verbose": true
+	},
+	"dependencies": {
+		"bcrypt": "^3.0.6",
+		"@hapi/joi": "16.1.7",
+		"@hapi/boom": "8.0.1",
+		"@hapi/hapi": "^18.4.0",
+		"dotenv": "8.1.0",
+		"hapi-auth-jwt2": "8.7.0",
+		"jsonwebtoken": "8.5.1",
+		"lodash": "4.17.15",
+		"mongodb": "3.3.2"
+	},
+	"devDependencies": {
+		"@babel/core": "7.6.3",
+		"@babel/preset-env": "7.6.3",
+		"eslint": "6.5.1",
+		"eslint-config-airbnb-base": "14.0.0",
+		"eslint-config-prettier": "4.3.0",
+		"eslint-plugin-import": "2.18.2",
+		"eslint-plugin-prettier": "3.1.1",
+		"jest": "24.9.0",
+		"prettier": "1.18.2"
+	}
+}
